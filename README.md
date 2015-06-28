@@ -1,2 +1,2 @@
 # urban-dict
-urban dictionary cli program
+small program on cli, for urban dictionary using requests lib
