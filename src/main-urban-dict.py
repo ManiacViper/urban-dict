@@ -29,7 +29,7 @@ def show_term(size):
 def get_term():
     global term
     if term == '':
-        term = input('search term: ')
+        term = raw_input('search term: ')
     try:
         return requests.get(URBANDICT_TERM_URL + term).json()
     except requests.HTTPError as httpe:
