@@ -34,13 +34,24 @@ def get_term(term):
         prof.cons_show('cannot retrieve term')
         prof.cons_show('error response' + httpe.response)
 
+def check_term(term):
+     if not term:
+        prof.cons_bad_cmd_usage("/urban")
+
 def execute(term) :
+    check_term(term)
     show_related_terms(term)
     show_term(2, term)
 
 def prof_init(version, status):
-    prof.register_command("/urban", 1, 1,
-                          "/urban [word]",
-                          "display urban definitions",
-                          "display urban definitions",
-                          execute)
+    synopsis = [
+        "/urban [word]"
+    ]
+    description = "Display definitions of a slang word"
+    args = [
+        [ "[word]", "Any slang word you want to find a definition for" ]
+    ]
+    examples = []
+
+    prof.register_command("/urban", 1, 1, synopsis, description, args, examples, execute)
+    prof.completer_add("/urban", [ "[slang word here]" ])
