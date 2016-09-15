@@ -43,7 +43,7 @@ def execute(term) :
     show_related_terms(term)
     show_term(2, term)
 
-def prof_init(version, status):
+def prof_init(version, status, account_name, fulljid):
     synopsis = [
         "/urban [word]"
     ]
